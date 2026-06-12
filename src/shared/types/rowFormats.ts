@@ -12,10 +12,10 @@ export const NormalizedRowSchema = Type.Object({
   fonte: Type.String(),
   codigoAplicacao: Type.String(),
   quantidadeProduto: Type.String(),
-  dataInicio: Type.Date(),
-  dataVencimento: Type.Date(),
+  dataInicio: Type.String(),
+  dataVencimento: Type.String(),
   prazoMeses: Type.Number(),
-  dataPagamento: Type.Optional(Type.Date()),
+  dataPagamento: Type.Optional(Type.String()),
   valorTotalContrato: Type.Optional(Type.Number()),
   valorMensal: Type.Optional(Type.Number()),
   valorAnual: Type.Optional(Type.Number()),
@@ -32,7 +32,7 @@ export const NormalizedRowSchema = Type.Object({
   valor2029: Type.Optional(Type.Number()),
   gestorContrato: Type.String(),
   alterador: Type.String(),
-  dataExportacao: Type.Date(),
+  dataExportacao: Type.String(),
 });
 
 export type NormalizedRow = Static<typeof NormalizedRowSchema>;

@@ -1,14 +1,13 @@
 import { type NormalizedRow, type RawSpreadsheetRow } from '../types/rowFormats.js';
 
 import { parseCurrency } from '../utils/currency/parseCurrency.js';
+import { formatDate } from '../utils/dates/formatDate.js';
 import { parseDate } from '../utils/dates/parseDate.js';
 import { parseNumber } from '../utils/parsing/parseNumber.js';
 import { sanitizeString } from '../utils/strings/sanitizeString.js';
 
 
-export function normalizeRow(
-  row: RawSpreadsheetRow
-): NormalizedRow {
+export function normalizeRow(row: RawSpreadsheetRow): NormalizedRow {
   return {
     secretaria: sanitizeString(row["Secretaria"]),
     orgao: sanitizeString(row["Órgão"]),
@@ -21,9 +20,9 @@ export function normalizeRow(
     fonte: sanitizeString(row["Fonte"]),
     codigoAplicacao: sanitizeString(row["Código de aplicação"]),
     quantidadeProduto: sanitizeString(row["Quantidade/Produto"]),
-    dataInicio: parseDate(row["Data de Início"]),
-    dataVencimento: parseDate(row["Data de Término/Vencimento"]),
-    dataPagamento: parseDate(row["Data de Pagamento"]),
+    dataInicio: formatDate(parseDate(row["Data de Início"])),
+    dataVencimento: formatDate(parseDate(row["Data de Término/Vencimento"])),
+    dataPagamento: formatDate(parseDate(row["Data de Pagamento"])),
     prazoMeses: parseNumber(row["Prazo (em meses)"]),
     valorTotalContrato: parseCurrency(row["Valor Total do Contrato"]),
     valorMensal: parseCurrency(row["Valor Mensal"]),
@@ -40,7 +39,7 @@ export function normalizeRow(
     valorTotalAnual: parseCurrency(row["Valor Total Anual"]),
     gestorContrato: sanitizeString(row["Gestor do contrato"]),
     observacao: sanitizeString(row["Observação"]),
-    alterador: sanitizeString(row["Responsável pelo preenchimento"]),
-    dataExportacao: parseDate(row["Data de Exportação"]),
+    alterador: sanitizeString(row["Responsável pelo Preenchimento"]),
+    dataExportacao: formatDate(parseDate(row["Data de Exportação"])),
   };
 }
