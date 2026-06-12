@@ -19,8 +19,8 @@ export function formatRow(row: NormalizedRow) {
     [COLUMN_LABELS.fonte]: row.fonte,
     [COLUMN_LABELS.codigoAplicacao]: row.codigoAplicacao,
     [COLUMN_LABELS.quantidadeProduto]: row.quantidadeProduto,
-    [COLUMN_LABELS.dataInicio]: formatDate(row.dataInicio),
-    [COLUMN_LABELS.dataVencimento]: formatDate(row.dataVencimento),
+    [COLUMN_LABELS.dataInicio]: row.dataInicio,
+    [COLUMN_LABELS.dataVencimento]: row.dataVencimento,
     [COLUMN_LABELS.dataPagamento]: row.dataPagamento,
     [COLUMN_LABELS.prazoMeses]: row.prazoMeses,
     [COLUMN_LABELS.valorTotalContrato]: formatCurrency(row.valorTotalContrato),
@@ -39,6 +39,6 @@ export function formatRow(row: NormalizedRow) {
     [COLUMN_LABELS.gestorContrato]: titleCase(row.gestorContrato),
     [COLUMN_LABELS.observacao]: row.observacao,
     [COLUMN_LABELS.alterador]: row.alterador,
-    [COLUMN_LABELS.dataExportacao]: formatDate(row.dataExportacao),
+    [COLUMN_LABELS.dataExportacao]: row.dataExportacao,
   };
 }
