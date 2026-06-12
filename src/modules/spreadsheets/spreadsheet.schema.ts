@@ -1,0 +1,11 @@
+export const createSpreadsheetSchema = {
+  body: {
+    type: "object",
+    required: ["name"],
+    properties: {
+      name: {
+        type: "string"
+      }
+    }
+  }
+};
