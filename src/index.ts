@@ -7,13 +7,20 @@ import spreadsheetRoutes from "./modules/spreadsheets/spreadsheet.routes.js";
 import exportRoutes from "./modules/export/export.routes.js"
 import importRoutes from "./modules/import/import.routes.js"
 
+const FRONTEND_URL = process.env.FRONTEND_URL
+
+if (!FRONTEND_URL) {
+  throw new Error("FRONTEND_URL is not defined");
+}
+
 export async function buildApp() {
   const app = Fastify({
     logger: true,
   });
 
   await app.register(cors, {
-    origin: "http://localhost:5173", // TODO Use a .env variable for the frontend URL
+    origin: FRONTEND_URL,
+    credentials: true,
   });
 
   await app.register(multipart);
