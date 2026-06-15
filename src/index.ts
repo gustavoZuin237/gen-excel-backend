@@ -6,6 +6,7 @@ import cors from "@fastify/cors";
 import spreadsheetRoutes from "./modules/spreadsheets/spreadsheet.routes.js";
 import exportRoutes from "./modules/export/export.routes.js"
 import importRoutes from "./modules/import/import.routes.js"
+import updateRoutes from './modules/update/update.routes.js'
 
 const FRONTEND_URL = process.env.FRONTEND_URL
 
@@ -35,6 +36,10 @@ export async function buildApp() {
 
   app.register(exportRoutes, {
     prefix: "/spreadsheets/export",
+  });
+
+  app.register(updateRoutes, {
+    prefix: "/spreadsheets/update",
   });
 
   return app;
