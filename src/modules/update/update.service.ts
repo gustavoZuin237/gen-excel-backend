@@ -1,11 +1,11 @@
 import type { UpdateSpreadsheetDTO } from "./update.schema.js";
 
 export async function UpdateSpreadsheetService({
-  spreadsheet,
+  rows,
   rowIndex,
   updates,
 }: UpdateSpreadsheetDTO) {
-  const row = spreadsheet.rows[rowIndex];
+  const row = rows[rowIndex];
 
   if (!row) {
     throw new Error("Row not found");
@@ -26,7 +26,9 @@ export async function UpdateSpreadsheetService({
 
   recalculateFields(updatedRow);
 
-  spreadsheet.rows[rowIndex] = updatedRow;
+  rows[rowIndex] = updatedRow;
 
-  return spreadsheet;
+  return {
+    rows
+  };
 }

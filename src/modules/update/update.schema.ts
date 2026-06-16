@@ -11,14 +11,14 @@ export const spreadsheetUpdatesSchema = z.object({
   supressaoAnual: z.number().optional(),
   valor2024: z.number().optional(),
   valor2025: z.number().optional(),
-  valor2026: z.number(),
-  valor2027: z.number(),
+  valor2026: z.number().optional(),
+  valor2027: z.number().optional(),
   valor2028: z.number().optional(),
   valor2029: z.number().optional(),
 });
 
 export const updateSpreadsheetSchema = z.object({
-  spreadsheet: z.any(), // replace with your spreadsheet schema if available
+  rows: z.array(z.any()), // TODO Infer a real typing here
   rowIndex: z.number().int().min(0),
   updates: spreadsheetUpdatesSchema,
 });
