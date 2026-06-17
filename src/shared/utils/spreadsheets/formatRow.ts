@@ -4,7 +4,6 @@ import { type NormalizedRow } from "../../types/rowFormats.js";
 
 import { formatCurrency } from "../currency/formatCurrency.js";
 import { titleCase } from "../strings/titleCase.js";
-import { formatDate } from "../dates/formatDate.js";
 
 export function formatRow(row: NormalizedRow) {
   return {
