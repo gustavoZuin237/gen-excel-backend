@@ -36,8 +36,8 @@ export function formatRow(row: NormalizedRow) {
     [COLUMN_LABELS.supressaoAnual]: formatCurrency(row.supressaoAnual),
     [COLUMN_LABELS.valorTotalAnual]: formatCurrency(row.valorTotalAnual),
     [COLUMN_LABELS.gestorContrato]: titleCase(row.gestorContrato),
+    [COLUMN_LABELS.alterador]: titleCase(row.alterador),
     [COLUMN_LABELS.observacao]: row.observacao,
-    [COLUMN_LABELS.alterador]: row.alterador,
     [COLUMN_LABELS.dataExportacao]: row.dataExportacao,
   };
 }
