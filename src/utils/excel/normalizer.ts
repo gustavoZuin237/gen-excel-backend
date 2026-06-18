@@ -1,10 +1,10 @@
-import { type NormalizedRow, type RawSpreadsheetRow } from '../types/rowFormats.js';
+import { type NormalizedRow, type RawSpreadsheetRow } from '../../shared/types/rowFormats.js';
 
-import { parseCurrency } from '../utils/currency/parseCurrency.js';
-import { formatDate } from '../utils/dates/formatDate.js';
-import { parseDate } from '../utils/dates/parseDate.js';
-import { parseNumber } from '../utils/parsing/parseNumber.js';
-import { sanitizeString } from '../utils/strings/sanitizeString.js';
+import { parseCurrency } from '../../shared/utils/currency/parseCurrency.js';
+import { formatDate } from '../../shared/utils/dates/formatDate.js';
+import { parseDate } from '../../shared/utils/dates/parseDate.js';
+import { parseNumber } from '../../shared/utils/parsing/parseNumber.js';
+import { sanitizeString } from '../../shared/utils/strings/sanitizeString.js';
 
 
 export function normalizeRow(row: RawSpreadsheetRow): NormalizedRow {

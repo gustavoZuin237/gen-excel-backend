@@ -1,6 +1,6 @@
 import { MultipartFile } from "@fastify/multipart";
 
-import { parseSpreadsheet } from "../../shared/excel/parser.js";
+import { parseSpreadsheet } from "../../utils/excel/parser.js";
 
 export async function importService(
   file: MultipartFile

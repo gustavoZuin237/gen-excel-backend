@@ -1,7 +1,7 @@
 import ExcelJS from "exceljs";
 
 import { NormalizedRow } from "../../shared/types/rowFormats.js";
-import { formatRow } from "../../shared/utils/spreadsheets/formatRow.js";
+import { formatRow } from "../../utils/spreadsheets/formatRow.js";
 
 import { formatDate } from "../../shared/utils/dates/formatDate.js"
 

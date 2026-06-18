@@ -1,6 +1,6 @@
 import * as XLSX from "xlsx";
 
-import { NormalizedRow, RawSpreadsheetRow } from "../types/rowFormats.js"
+import { NormalizedRow, RawSpreadsheetRow } from "../../shared/types/rowFormats.js"
 
 import { validateColumns } from "./schemaValidator.js";
 
