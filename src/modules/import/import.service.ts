@@ -5,15 +5,24 @@ import { parseSpreadsheet } from "../../shared/excel/parser.js";
 export async function importService(
   file: MultipartFile
 ) {
+  if (!file) {
+    throw new Error("Nenhum arquivo para importar")
+  }
+
   const buffer = await file.toBuffer();
 
-  const rows = await parseSpreadsheet(buffer);
+  let rows;
+
+  try {
+    rows = await parseSpreadsheet(buffer);
+  } catch {
+    throw new Error("Falha na análise de arquivo")
+  }
 
   return {
     fileName: file.filename,
     totalRows: rows.length,
     importedAt: new Date().toISOString(),
-    warnings: [], // TODO Add warnings about broken rows without rejecting the full spreadsheet
     rows,
   };
 }

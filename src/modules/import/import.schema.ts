@@ -13,9 +13,6 @@ export const importSchema = {
           type: "string",
           format: "date-time"
         },
-        warnings: {
-          type: "array"
-        },
         rows: {
           type: "array"
         }

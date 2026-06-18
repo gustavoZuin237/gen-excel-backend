@@ -14,7 +14,17 @@ export async function exportController(
 ) {
   const body = request.body;
 
-  const buffer = await exportService(body.fileName, body.rows);
+  if (!body) {
+    throw new Error("Falha na exportação")
+  }
+
+  let buffer;
+
+  try {
+    buffer = await exportService(body.fileName, body.rows);
+  } catch {
+    throw new Error("Falha na exportação")
+  }
 
   reply
   .header(

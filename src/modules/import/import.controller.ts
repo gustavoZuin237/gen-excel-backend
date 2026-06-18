@@ -14,7 +14,14 @@ export async function importController(
     });
   }
 
-  const rows = await importService(file);
+  let rows;
+
+  try {
+    rows = await importService(file);
+  }
+  catch(err) {
+    throw new Error("Falha na importação de arquivo")
+  }
 
   return reply.send(rows);
 }

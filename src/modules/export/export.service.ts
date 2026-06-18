@@ -9,6 +9,10 @@ export async function exportService(
   fileName: string,
   data: NormalizedRow[]
 ) {
+  if (!data || !fileName) {
+    throw new Error("Arquivo sem nome ou dados")
+  }
+
   const workbook = new ExcelJS.Workbook();
 
   const worksheet = workbook.addWorksheet(fileName);
@@ -23,7 +27,7 @@ export async function exportService(
   });
 
   if (!rowsWithTimestamp.length) {
-    throw new Error("No rows available for export");
+    throw new Error("Falha na exportação")
   }
 
   const headers = Object.keys(rowsWithTimestamp[0]);
@@ -85,7 +89,13 @@ export async function exportService(
   };
 
   // Generate file
-  const buffer = await workbook.xlsx.writeBuffer();
+  let buffer;
+
+  try {
+    buffer = await workbook.xlsx.writeBuffer();
+  } catch {
+    throw new Error("Falha na geração de arquivo")
+  }
 
   return buffer
 }

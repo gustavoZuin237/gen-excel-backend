@@ -9,7 +9,6 @@ export const exportSchema = {
         type: "string",
       },
       rows: Type.Array(Type.Any()),
-      // * This FUCKING thing wouldn't register the correct typing. It works though, trust me. If it doesn't... Fix it, I guess lol 
     },
   },
   response: {

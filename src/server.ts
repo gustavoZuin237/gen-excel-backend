@@ -9,7 +9,7 @@ const start = async () => {
     host: "0.0.0.0"
   });
 
-  console.log(`🚀 Server running at port ${env.PORT} 🚀`);
+  console.log(`🚀 Server running 🚀`);
 };
 
 start();

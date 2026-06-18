@@ -7,7 +7,11 @@ import { validateColumns } from "./schemaValidator.js";
 import { normalizeRow } from "./normalizer.js";
 
 export async function parseSpreadsheet(buffer: Buffer): Promise<NormalizedRow[]> {
-   const workbook = XLSX.read(buffer);
+  if (!buffer) {
+    throw new Error("Nenhum buffer para analisar")
+  }
+
+  const workbook = XLSX.read(buffer);
 
   const worksheet = workbook.Sheets[workbook.SheetNames[0]];
 
@@ -15,7 +19,11 @@ export async function parseSpreadsheet(buffer: Buffer): Promise<NormalizedRow[]>
     defval: "",
   });
 
-  validateColumns(rawRows);
+  try {
+    validateColumns(rawRows);
+  } catch {
+    throw new Error("Falha na validação de colunas")
+  }
 
   return rawRows.map(normalizeRow);
 }
