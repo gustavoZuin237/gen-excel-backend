@@ -3,6 +3,8 @@ import ExcelJS from "exceljs";
 import { NormalizedRow } from "../../shared/types/rowFormats.js";
 import { formatRow } from "../../shared/utils/spreadsheets/formatRow.js";
 
+import { formatDate } from "../../shared/utils/dates/formatDate.js"
+
 export async function exportService(
   fileName: string,
   data: NormalizedRow[]
@@ -16,7 +18,7 @@ export async function exportService(
   const rowsWithTimestamp = data.map((row) => {
     return formatRow({
       ...row,
-      dataExportacao: row.dataExportacao ?? exportDate,
+      dataExportacao: row.dataExportacao ?? formatDate(exportDate),
     });
   });
 
