@@ -1,20 +1,12 @@
 import { Type } from "@sinclair/typebox";
+import { NormalizedRowSchema } from "../../shared/types/rowFormats.js";
 
 export const exportSchema = {
-  body: {
-    type: "object",
-    required: ["fileName", "rows"],
-    properties: {
-      fileName: {
-        type: "string",
-      },
-      rows: Type.Array(Type.Any()),
-    },
-  },
+  body: Type.Object({
+    fileName: Type.String(),
+    rows: Type.Array(NormalizedRowSchema),
+  }),
   response: {
-    200: {
-      type: "null",
-      description: "Excel file download",
-    },
+    200: Type.Null({ description: "Excel file download" }),
   },
 };
