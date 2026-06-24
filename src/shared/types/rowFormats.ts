@@ -32,7 +32,7 @@ export const NormalizedRowSchema = Type.Object({
   valor2029: Type.Optional(Type.Number()),
   gestorContrato: Type.String(),
   alterador: Type.String(),
-  dataExportacao: Type.String(),
+  dataExportacao: Type.Optional(Type.String()),
 });
 
 export type NormalizedRow = Static<typeof NormalizedRowSchema>;

@@ -29,7 +29,7 @@ export async function buildApp() {
   await app.register(swagger, {
     openapi: {
       info: {
-        title: "Spreadsheet API",
+        title: "Gen Excel API",
         description: "API for importing and exporting spreadsheets",
         version: "1.0.0",
       },
